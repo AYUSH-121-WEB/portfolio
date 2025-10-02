@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+  <link rel="stylesheet" href="{% static 'std.css' %}">
+</head>
+<body>
+ 
+  <!-- Navbar -->
+  <nav>
+    <img src="../static/images/ga_logo_-_Royalty_Free_Stock_Illustrations_and_-removebg-preview.png" alt="Logo" class="logo"> <!-- Replace with your uploaded logo -->
+    <ul>
+      <li><a href="{% url 'index' %}" class="active">Home</a></li>
+      <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm Ayush</h1>
+      <p>A passionate web developer creating modern and responsive websites to help businesses grow online.</p>
+      <div class="buttons">
+        <a href="{% url 'contact'%}" class="hire">Hire Me</a>
+        <a href="{% url 'contact'%}" class="contact">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="../static/images/IMG_20230710_093008_269.jpg" alt="My Photo">
+    </div>
+  </section>
+
+
+
+  <section class="about-section">
+    <h2>About Me</h2>
+    <p>I am a dedicated web developer with expertise in creating user-friendly, responsive, and scalable web applications. With a passion for design and functionality, I help businesses bring their ideas online with modern solutions.</p>
+    <a href="{% url 'about'%}">Read More</a>
+  </section>
+
+  <section class="portfolio-section">
+    <h2>My Recent Work</h2>
+    <p>Here are a few examples of projects I have worked on recently. Each project highlights my skills in design, development, and user experience.</p>
+    <div class="portfolio-items">
+      <div class="portfolio-item">
+        <img src="https://picsum.photos/seed/picsum/200/300" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A modern responsive website for a startup company to showcase their services.</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://picsum.photos/seed/picsum/200/300" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>An e-commerce platform with seamless shopping experience and payment integration.</p>
+      </div>
+    </div>
+    <a href="{% url 'portfolio'%}">View More</a>
+  </section>
+
+    <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Ayush Ghevariya</h3>
+        <p>Passionate Web Developer | Building Modern & Responsive Websites</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p>Email: <a href="mailto:ayush@example.com">ayush@example.com</a></p>
+        <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+        <a href="#"><img src="icons/github.png" alt="GitHub"></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Ayush Ghevariya | All Rights Reserved</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

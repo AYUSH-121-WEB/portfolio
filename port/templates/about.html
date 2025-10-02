@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="{% static 'std.css'%}">
+</head>
+<body>
+
+
+  <nav>
+    <img src="../static/images/ga_logo_-_Royalty_Free_Stock_Illustrations_and_-removebg-preview.png" alt="Logo" class="logo"> <!-- Replace with your uploaded logo -->
+    <ul>
+      <li><a href="{% url 'index' %}" class="active">Home</a></li>
+      <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+      
+    </ul>
+  </nav>
+
+  <section class="about-section1">
+    <div class="about-image">
+      <img src="../static/images/ga_logo_-_Royalty_Free_Stock_Illustrations_and_-removebg-preview.png" alt="My Photo">
+    </div>
+    <div class="about-content">
+      <h1>About Me</h1>
+      <p>
+        Hi, I'm Ayush Ghevariya, a passionate web developer with expertise in creating 
+        modern, responsive and user-friendly websites. I love turning ideas into reality 
+        using code and helping businesses build a strong digital presence.
+      </p>
+      <p>
+        With a strong background in HTML, CSS, JavaScript, and modern frameworks, 
+        I ensure that every project I work on is fast, efficient, and impactful.
+      </p>
+      <a href="{% url 'contact'%}" class="btn">Contact Me</a>
+    </div>
+  </section>
+
+
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Ayush Ghevariya</h3>
+        <p>Passionate Web Developer | Building Modern & Responsive Websites</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <p>Email: <a href="mailto:ayush@example.com">ayush@example.com</a></p>
+        <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Me</h4>
+        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+        <a href="#"><img src="icons/github.png" alt="GitHub"></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Ayush Ghevariya | All Rights Reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>
