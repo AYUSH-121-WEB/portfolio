@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Preview</title>
+  <style>
+    *{box-sizing:border-box}
+    body { margin:0; font-family: Arial, sans-serif; }
+
+    /* NAVBAR */
+    nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,.06);
+      position:fixed; top:0; left:0; right:0; z-index:30;
+    }
+    nav img{height:48px}
+
+    .nav-links{display:flex; gap:22px; list-style:none; margin:0}
+    .nav-links a{ text-decoration:none; color:#222; font-weight:600 }
+
+    .menu-toggle{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:8px; background:transparent; border:none; cursor:pointer}
+    .menu-toggle span{display:block; width:22px; height:2px; background:#222; border-radius:2px; transition:all .25s}
+    .menu-toggle .bar2{width:16px}
+
+    /* HERO */
+    .hero{display:flex; align-items:center; justify-content:space-between; gap:40px; padding:100px 8% 60px; min-height:100vh; background:linear-gradient(135deg,#e8f5e9,#fff)}
+    .hero-text{max-width:560px}
+    .hero-text h1{font-size:2.8rem; color:#2e7d32; margin:0 0 14px}
+    .hero-text p{font-size:1.15rem; color:#444; margin:0 0 18px}
+    .buttons{display:flex; gap:14px; flex-wrap:wrap}
+    .buttons a{display:inline-block;padding:12px 22px;border-radius:24px;text-decoration:none;font-weight:700}
+    .hire{background:#4caf50;color:#fff}
+    .contact{border:2px solid #4caf50;color:#4caf50}
+    .hero-img img{max-width:340px;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+
+    /* ABOUT SECTION */
+    .about {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:50px;
+      padding:100px 8%;
+      background:#fff;
+    }
+    .about-text{flex:1; text-align:left}
+    .about-text h2{font-size:2.4rem; color:#2e7d32; margin-bottom:20px}
+    .about-text p{font-size:1.15rem; line-height:1.8; margin-bottom:20px; color:#444}
+    .about-text a{display:inline-block; padding:12px 26px; border-radius:26px; background:#4caf50; color:#fff; text-decoration:none; font-weight:bold}
+    .about-img{flex:1; text-align:center}
+    .about-img img{max-width:380px; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,.15)}
+
+    /* OTHER SECTIONS */
+    .section{padding:70px 8%;text-align:center}
+    .section h2{font-size:2.1rem;color:#2e7d32;margin-bottom:14px}
+    .section p{max-width:900px;margin:0 auto 22px;color:#444}
+
+    .portfolio-items{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .portfolio-item{width:280px;background:#fff;border-radius:10px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.06);text-align:left}
+    .portfolio-item img{width:100%;border-radius:8px;margin-bottom:12px}
+    .portfolio-item h3{color:#2e7d32;margin:0 0 8px}
+
+    .cta{background:#f1f8e9}
+
+    /* FOOTER */
+    footer{background:#2e7d32;color:#fff;padding:40px 8%}
+    .footer-container{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+    .footer-container a{color:#fff;text-decoration:none}
+    .footer-bottom{text-align:center;margin-top:18px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;font-size:.95rem}
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+      .menu-toggle{display:flex}
+      .nav-links{position:absolute; top:64px; right:20px; width:230px; background:#fff; flex-direction:column; padding:14px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,.12); gap:10px; overflow:hidden; max-height:0; opacity:0; transform:translateY(-6px); transition: max-height .35s ease, opacity .35s ease, transform .35s ease }
+      .nav-links.open{ max-height:420px; opacity:1; transform:translateY(0) }
+      .hero{padding:100px 6% 40px}
+      .hero-text h1{font-size:2rem}
+      .hero-img img{max-width:220px}
+      .buttons{justify-content:center}
+      .about{flex-direction:column; text-align:center}
+      .about-img img{max-width:260px}
+    }
+    @media (max-width:600px){
+      .section{padding:50px 5%}
+      .hero{flex-direction:column-reverse;text-align:center;min-height:85vh}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="logo.png" alt="Logo" />
+    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar1"></span>
+      <span class="bar2"></span>
+      <span class="bar3"></span>
+    </button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm Ayush</h1>
+      <p>A passionate web developer creating modern and responsive websites to help businesses grow online.</p>
+      <div class="buttons">
+        <a href="#" class="hire">Hire Me</a>
+        <a href="#" class="contact">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://via.placeholder.com/320" alt="My Photo" />
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I am a dedicated web developer with expertise in creating user-friendly, responsive, and scalable web applications. With a passion for design and functionality, I help businesses bring their ideas online with modern solutions. I constantly learn new technologies and strive to deliver the best results for clients.</p>
+      <p>Beyond coding, I enjoy collaborating with creative teams, solving complex problems, and ensuring that every project reflects both innovation and quality.</p>
+      <a href="#about">Read More</a>
+    </div>
+    <div class="about-img">
+      <img src="https://via.placeholder.com/380" alt="About Photo">
+    </div>
+  </section>
+
+  <section class="section portfolio">
+    <h2>My Recent Work</h2>
+    <p>Here are a few examples of projects I have worked on recently. Each project highlights my skills in design, development, and user experience.</p>
+    <div class="portfolio-items">
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/300x200" alt="Project 1" />
+        <h3>Project One</h3>
+        <p>A modern responsive website for a startup company to showcase their services.</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/300x200" alt="Project 2" />
+        <h3>Project Two</h3>
+        <p>An e-commerce platform with seamless shopping experience and payment integration.</p>
+      </div>
+    </div>
+    <a href="#portfolio" class="contact">View More</a>
+  </section>
+
+  <section class="section cta">
+    <h2>Let’s Build Something Amazing Together</h2>
+    <p>I’m always excited to collaborate on innovative projects. Let’s turn your ideas into reality with modern, responsive web solutions.</p>
+    <a href="#contact" class="hire">Get In Touch</a>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>Ayush Ghevariya</h3>
+        <p>Passionate Web Developer | Building Modern & Responsive Websites</p>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <p>Email: <a href="mailto:ayush@example.com">ayush@example.com</a></p>
+        <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
+      </div>
+      <div>
+        <h4>Follow Me</h4>
+        <p><a href="#">LinkedIn</a> · <a href="#">GitHub</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Ayush Ghevariya | All Rights Reserved</div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggleBtn = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const overlay = document.getElementById('menu-overlay');
+
+      if(!toggleBtn || !navLinks) return;
+
+      function openMenu(){
+        navLinks.classList.add('open');
+        toggleBtn.setAttribute('aria-expanded','true');
+        overlay.classList.add('visible');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        navLinks.classList.remove('open');
+        toggleBtn.setAttribute('aria-expanded','false');
+        overlay.classList.remove('visible');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+      toggleBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        if(navLinks.classList.contains('open')) closeMenu(); else openMenu();
+        toggleBtn.classList.toggle('open');
+      });
+      overlay.addEventListener('click', closeMenu);
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+      const style = document.createElement('style');
+      style.innerHTML = '.menu-overlay{display:none}.menu-overlay.visible{display:block} .menu-toggle.open .bar1{transform:translateY(6px) rotate(45deg)} .menu-toggle.open .bar2{opacity:0} .menu-toggle.open .bar3{transform:translateY(-6px) rotate(-45deg)}';
+      document.head.appendChild(style);
+    })();
+  </script>
+</body>
+</html>

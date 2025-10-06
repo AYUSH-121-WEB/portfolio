@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="{% static 'style.css'%}">
   <link rel="stylesheet" href="../static/style.css">
   <!-- <link rel="stylesheet" href="{% static 'std.css' %}"> -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -26,19 +30,27 @@
   </nav>
 
   <!-- Contact Section -->
-  <section class="contact">
-    <h2>Get In Touch</h2>
-   <div class="cntctfrm" style="background-color: aliceblue; max-width: 500px;">
-     <form id="contactForm" method="post">
-      {% csrf_token %}
-      {{ form }}
+  <div class="container">
+    <form class="form">
+      <div class="descr">Contact us</div>
+      <div class="input">
+          <input required="" autocomplete="off" type="text">
+          <label for="name">Name</label>
+      </div>
 
+      <div class="input">
+          <input required="" autocomplete="off" name="email" type="text">
+          <label for="email">E-mail</label>
+      </div>
 
-      <button action="Submit">Submit</button>
-   
+      <div class="input">
+          <textarea required="" cols="30" rows="1" id="message"></textarea>
+          <label for="message">Message</label>
+      </div>
+      
+      <button>Send message →</button>
     </form>
-   </div>
-  </section>
+</div>
 
   <!-- footer  -->
   <footer>
@@ -56,10 +68,10 @@
 
       <div class="footer-social">
         <h4>Follow Me</h4>
-        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="icons/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="icons/linkedin.png" alt="LinkedIn"></a>
-        <a href="#"><img src="icons/github.png" alt="GitHub"></a>
+        <a href="#"><i class="fa-brands fa-square-facebook" style="color: #ffffff ;font-size: 20px;"></i></i></a>
+        <a href="#"><i class="fa-brands fa-square-twitter" style="color: #ffffff;font-size: 20px;"></i></i></a>
+        <a href="#"><i class="fa-brands fa-square-linkedin" style="color: #ffffff;font-size: 20px;"></i></a>
+        <a href="#"><i class="fa-brands fa-square-github" style="color: #ffffff;font-size: 20px;"></i></i></a>
       </div>
     </div>
 
@@ -69,4 +81,133 @@
   </footer>
 
 </body>
+</html>
+
+
+
+<html>
+<head>
+  <style>
+    /* From Uiverse.io by codebykay101 */ 
+.container {
+  max-width: 500px;
+  height: 400px;
+   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #f4f4f9;
+  background: linear-gradient(to right, #f4f4f9, #f4f4f9);
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+.container form .descr {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input, textarea {
+  margin: 1em 0 1em 0;
+  width: 300px;
+  position: relative;
+}
+
+.input input, textarea {
+  font-size: 100%;
+  padding: 0.7em;
+  outline: none;
+  color: #000000;
+  border: none;
+  border-bottom: 2px solid #000000;
+  background: transparent;
+  border-radius: none;
+  width: 100%;
+  resize: none;
+}
+
+.input label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  color: #000000;
+  padding: 0.7em;
+  margin-left: 0.1em;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  text-transform: uppercase;
+}
+
+.input :is(input:focus, input:valid)~label {
+  transform: translateY(-50%) scale(.9);
+  margin: 0em;
+  padding: 0.4em;
+  background: transparent;
+}
+
+.input textarea:focus ~ label,
+.input textarea:valid ~ label {
+  transform: translateY(-50%) scale(.9);
+  margin: 0em;
+  padding: 0.4em;
+  background: transparent;
+}
+
+.inputGroup :is(input:focus, input:valid) {
+  border-color: rgb(37, 37, 211);
+}
+
+.form button {
+  color: #000000;
+  font-size: 15px;
+  align-self: flex-start;
+  padding: 0.6em;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 50px;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+   margin: auto;
+   max-width: 500px;
+}
+
+.form button:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.form button:hover:before {
+  opacity: 0.2;
+}
+
+.form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+  </style>
+</head>
+
+
+
 </html>
