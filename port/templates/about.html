@@ -6,73 +6,177 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me</title>
-  <link rel="stylesheet" href="{% static 'std.css'%}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 
+  <style>
+
+    /* PAGE GLOBAL RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* MAIN SECTION */
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 5%;
+      gap: 60px;
+      background: #ffffff;
+      flex-wrap: wrap;              
+    }
+
+    /* IMAGE */
+    .about-image img {
+      width: 100%;
+      max-width: 320px;            
+      border-radius: 15px;
+      object-fit: contain;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* CONTENT */
+    .about-content {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .about-content h1 {
+      font-size: 2.8rem;
+      color: #2e7d32;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .about-content .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #4caf50;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .about-content .btn:hover {
+      background: #388e3c;
+    }
+
+    /* TABLET / SMALL LAPTOP */
+    @media (max-width: 1024px) {
+      .about-section1 {
+        padding: 60px 6%;
+        gap: 40px;
+      }
+
+      .about-content h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    /* MOBILE LANDSCAPE */
+    @media (max-width: 768px) {
+      .about-section1 {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content {
+        text-align: center;
+      }
+
+      .about-content h1 {
+        text-align: center;
+        font-size: 2.2rem;
+      }
+
+      .about-content p {
+        font-size: 1rem;
+      }
+    }
+
+    /* SMALL MOBILE (iPhone SE, Galaxy Fold) */
+    @media (max-width: 480px) {
+      .about-section1 {
+        padding: 50px 7%;
+      }
+
+      .about-content h1 {
+        font-size: 1.9rem;   
+      }
+
+      .about-content p {
+        font-size: 0.95rem;
+      }
+
+      .about-image img {
+        max-width: 250px;
+      }
+    }
+
+    /* ULTRA SMALL (approx 320px) */
+    @media (max-width: 360px) {
+      .about-content h1 {
+        font-size: 1.7rem;
+      }
+
+      .about-content p {
+        font-size: 0.9rem;
+      }
+
+      .about-image img {
+        max-width: 220px;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
-
-  <nav>
-    <img src="../static/images/ga_logo_-_Royalty_Free_Stock_Illustrations_and_-removebg-preview.png" alt="Logo" class="logo"> <!-- Replace with your uploaded logo -->
-    <ul>
-      <li><a href="{% url 'index' %}" class="active">Home</a></li>
-      <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
-      <li><a href="{% url 'about' %}">About</a></li>
-      <li><a href="{% url 'contact' %}">Contact</a></li>
-      
-    </ul>
-  </nav>
-
-  <section class="about-section1">
+  {% include 'nav.html' %}
+  <section class="about-section">
     <div class="about-image">
       <img src="../static/images/pngtree-business-portfolio-3d-character-illustration-png-image_10204176.png" alt="My Photo">
     </div>
+
     <div class="about-content">
       <h1>About Me</h1>
+
       <p>
         Hi, I'm Ayush Ghevariya, a passionate web developer with expertise in creating 
         modern, responsive and user-friendly websites. I love turning ideas into reality 
         using code and helping businesses build a strong digital presence.
       </p>
+
       <p>
         With a strong background in HTML, CSS, JavaScript, and modern frameworks, 
         I ensure that every project I work on is fast, efficient, and impactful.
       </p>
-      <a href="{% url 'contact'%}" class="btn">Contact Me</a>
+
+      <a href="{% url 'contact' %}" class="btn">Contact Me</a>
     </div>
   </section>
 
-
-
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-about">
-        <h3>Ayush Ghevariya</h3>
-        <p>Passionate Web Developer | Building Modern & Responsive Websites</p>
-      </div>
-
-      <div class="footer-contact">
-        <h4>Contact Info</h4>
-        <p>Email: <a href="mailto:ayush@example.com">ayush@example.com</a></p>
-        <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
-      </div>
-
-      <div class="footer-social">
-        <h4>Follow Me</h4>
-        <a href="#"><i class="fa-brands fa-square-facebook" style="color: #ffffff ;font-size: 20px;"></i></i></a>
-        <a href="#"><i class="fa-brands fa-square-twitter" style="color: #ffffff;font-size: 20px;"></i></i></a>
-        <a href="#"><i class="fa-brands fa-square-linkedin" style="color: #ffffff;font-size: 20px;"></i></a>
-        <a href="#"><i class="fa-brands fa-square-github" style="color: #ffffff;font-size: 20px;"></i></i></a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 Ayush Ghevariya | All Rights Reserved</p>
-    </div>
-  </footer>
+  {% include 'footer.html' %}
 
 </body>
 </html>

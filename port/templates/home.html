@@ -5,26 +5,315 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
-  <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
-  <link rel="stylesheet" href="{% static 'std.css' %}">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <link rel="stylesheet" href="{% static 'scripts.js' %}">
+
+
+  <style>
+    
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  min-height: 100vh;
+  box-sizing: border-box;
+  gap: 40px;
+}
+
+/* hero Section */
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #2e7d32;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.buttons a {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hire {
+  background: #4caf50;
+  color: white;
+}
+
+.hire:hover {
+  background: #388e3c;
+}
+
+.contact {
+  border: 2px solid #4caf50;
+  color: #4caf50;
+}
+
+.contact:hover {
+  background: #4caf50;
+  color: white;
+}
+
+/* Image */
+.hero-img {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.portfolio-items {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.portfolio-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio-item img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.portfolio-item h3 {
+  margin-bottom: 10px;
+  color: #2e7d32;
+}
+
+.cta-section {
+  background: #f1f8e9;
+}
+
+.about-section {
+  padding: 80px 10%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.about-section h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.about-section p {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-section a {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+  background: #4caf50;
+  color: white;
+}
+
+.about-section a:hover {
+  background: #388e3c;
+}
+
+.portfolio-section {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.portfolio-section h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.portfolio-section p {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button_view_more {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button_view_more a {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet (992px) */
+@media (max-width: 992px) {
+  .hero {
+    padding: 40px 8%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero-text p {
+    font-size: 1.1rem;
+  }
+
+  .about-section {
+    padding: 40px 8%;
+  }
+
+  .about-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-section p {
+    font-size: 1.1rem;
+  }
+
+  .portfolio-section {
+    padding: 40px 8%;
+  }
+
+  .portfolio-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .portfolio-section p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile (768px) */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 6%;
+    min-height: auto;
+  }
+
+  .hero-text {
+    text-align: center;   
+    width: 100%;
+  }
+
+  .buttons {
+    justify-content: center;  
+    width: 100%;
+  }
+
+  .hero-img img {
+    max-width: 260px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+
+/* Small Mobile (480px, 412px, 390px etc.) */
+@media (max-width: 480px) {
+
+  .hero {
+    padding: 30px 5%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .buttons a {
+    margin-left: 0;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .about-section {
+    padding: 30px 5%;
+  }
+
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-section p {
+    font-size: 0.95rem;
+  }
+
+  .about-section a {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+  </style>
 </head>
 <body>
  
   <!-- Navbar -->
-  <nav>
-    <img src="../static/images/ga_logo_-_Royalty_Free_Stock_Illustrations_and_-removebg-preview.png" alt="Logo" class="logo"> <!-- Replace with your uploaded logo -->
-    <ul>
-      <li><a href="{% url 'index' %}" class="active">Home</a></li>
-      <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
-      <li><a href="{% url 'about' %}">About</a></li>
-      <li><a href="{% url 'contact' %}">Contact</a></li>
-      
-    </ul>
-  </nav>
-
+   {% include 'nav.html' %}
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
@@ -38,16 +327,21 @@
     <div class="hero-img">
       <img src="../static/images/IMG_20230710_093008_269.jpg" alt="My Photo">
     </div>
-  </section>
+</section>
 
 
-
+<!-- about section  -->
   <section class="about-section">
     <h2>About Me</h2>
     <p>I am a dedicated web developer with expertise in creating user-friendly, responsive, and scalable web applications. With a passion for design and functionality, I help businesses bring their ideas online with modern solutions.</p>
     <a href="{% url 'about'%}">Read More</a>
   </section>
+<!-- about section end  -->
 
+
+
+<!-- porfolio section  -->
+ 
   <section class="portfolio-section">
     <h2>My Recent Work</h2>
     <p>Here are a few examples of projects I have worked on recently. Each project highlights my skills in design, development, and user experience.</p>
@@ -63,36 +357,17 @@
         <p>An e-commerce platform with seamless shopping experience and payment integration.</p>
       </div>
     </div>
-    <a href="{% url 'portfolio'%}">View More</a>
+    <div class="button_view_more">
+      <a href="{% url 'portfolio'%}" class="hire">View More</a>
+    </div>
   </section>
+<!-- porfolio section end   -->
+
+
+
 
     <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-about">
-        <h3>Ayush Ghevariya</h3>
-        <p>Passionate Web Developer | Building Modern & Responsive Websites</p>
-      </div>
-
-      <div class="footer-contact">
-        <h4>Contact Info</h4>
-        <p>Email: <a href="mailto:ayush@example.com">ayush@example.com</a></p>
-        <p>Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
-      </div>
-
-      <div class="footer-social">
-        <h4>Follow Me</h4>
-        <a href="#"><i class="fa-brands fa-square-facebook" style="color: #ffffff ;font-size: 20px;"></i></i></a>
-        <a href="#"><i class="fa-brands fa-square-twitter" style="color: #ffffff;font-size: 20px;"></i></i></a>
-        <a href="#"><i class="fa-brands fa-square-linkedin" style="color: #ffffff;font-size: 20px;"></i></a>
-        <a href="#"><i class="fa-brands fa-square-github" style="color: #ffffff;font-size: 20px;"></i></i></a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2025 Ayush Ghevariya | All Rights Reserved</p>
-    </div>
-  </footer>
+  {% include 'footer.html' %}
 
 
 </body>

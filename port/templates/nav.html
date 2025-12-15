@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Hamburger Icon */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Mobile Style */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                background: white;
+                color: #000;
+                opacity: 0.6;
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav ul.show {
+                display: flex; /* SHOW MENU WHEN CLICKED */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="../static/images/ga_logo_-_Royalty_Free_Stock_Illustrations_and_-removebg-preview.png" alt="Logo">
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <ul id="menuLinks">
+            <li><a href="{% url 'index' %}" class="active">Home</a></li>
+            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menuLinks").classList.toggle("show");
+        }
+    </script>
+
+</body>
+</html>
